@@ -6,6 +6,7 @@
     "DjangoCMS": "no",
     "python_version": "2.7",
     "with_documentation": "yes",
+    "languages": "pl,en",
     "year": "2017",
     "author_name": "ELCODO"
 }

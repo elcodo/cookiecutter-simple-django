@@ -1,4 +1,5 @@
 import os
+{% if cookiecutter.languages.split(',') and cookiecutter.DjangoCMS == 'yes' %}gettext = lambda s: s{% endif %}
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -108,6 +109,37 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '../../media/')
 
 SITE_ID = 1
+
+{% if cookiecutter.languages.split(',') and cookiecutter.DjangoCMS == 'yes' %}CMS_LANGUAGES = {
+    1: [{% for language in cookiecutter.languages.split(',') %}
+        {
+            'code': '{{language}}',
+            'name': gettext('{{language}}'),
+            'redirect_on_fallback': True,
+            'public': True,
+            'hide_untranslated': False,
+        },{% endfor %}
+    ],
+    'default': {
+        'redirect_on_fallback': True,
+        'public': True,
+        'hide_untranslated': False,
+    },
+}
+
+LANGUAGES = []
+for lang in CMS_LANGUAGES[SITE_ID]:
+    LANGUAGES.append((lang['code'], lang['name']))
+
+PARLER_LANGUAGES = {
+    SITE_ID: list(
+        {'code': l[0]} for l in LANGUAGES
+    ),
+    'default': {
+        'fallback': LANGUAGE_CODE,
+        'hide_untranslated': True,   # the default; let .active_translations() return fallbacks too.
+    }
+}{% endif %}
 
 try:
     from .local import *  # noqa
