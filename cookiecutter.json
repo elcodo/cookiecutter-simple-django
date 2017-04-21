@@ -1,11 +1,10 @@
 {
     "project_name": "project_name",
     "repo_name":"repo_name",
-    "author_name": "Your Name",
-    "email": "Your email",
-    "description": "A short description of the project.",
-    "year": "Current year",
-    "use_sqlite_as_local_db_engine": "no",
-    "with_documentation": "yes"
-
+    "use_mysql": "no",
+    "use_psql": "no",
+    "python_version": "2.7",
+    "with_documentation": "yes",
+    "year": "2017",
+    "author_name": "ELCODO"
 }

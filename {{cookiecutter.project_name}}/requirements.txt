@@ -1,0 +1,3 @@
+Django==1.11
+{% if cookiecutter.use_psql == 'yes' %}psycopg2==2.7.1{% endif %}
+{% if cookiecutter.use_mysql == 'yes' %}mysql-python==1.2.5{% endif %}
