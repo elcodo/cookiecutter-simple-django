@@ -3,6 +3,7 @@
     "repo_name":"repo_name",
     "use_mysql": "no",
     "use_psql": "no",
+    "DjangoCMS": "no",
     "python_version": "2.7",
     "with_documentation": "yes",
     "year": "2017",

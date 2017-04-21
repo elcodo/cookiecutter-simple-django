@@ -19,6 +19,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',{% if cookiecutter.DjangoCMS == 'yes' %}
+    'cms',
+    'menus',
+    'treebeard',{% endif %}
+    'compressor',
+
 ]
 
 MIDDLEWARE = [
@@ -101,6 +107,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, '../../static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '../../media/')
 
+SITE_ID = 1
 
 try:
     from .local import *  # noqa
